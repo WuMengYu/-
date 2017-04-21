@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+	<script>
+		(function(){document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.8 + 'px';})();
+	</script>
+	<style type="text/css">
+		.clearfix:before,
+		.clearfix:after {       
+	    	content: "";     /*内容为“.”就是一个英文的句号而已。也可以不写。*/
+	   		display: block;   /*加入的这个元素转换为块级元素。*/
+	    	clear: both;     /*清除左右两边浮动。*/
+	    	visibility: hidden;      /*可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已；*/
+	    	line-height: 0;    /*行高为0；*/
+	    	height: 0;     /*高度为0；*/
+	    	font-size:0;    /*字体大小为0；*/
+		}
+		.clearfix { *zoom:1;}   /*这是针对于IE6的，因为IE6不支持:after伪类，这个神奇的zoom:1让IE6的元素可以清除浮动来包裹内部元素。*/
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		header{
+			background-color: #f0f0f2;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+			width: 100%;
+		}
+		header .top{
+			text-align: center;
+			padding-top: 0.64rem;
+			padding-bottom: 0.3rem;
+			line-height: 1.1rem;
+			border-bottom: 4px solid #d9e3e5;
+		}
+		header .top > img{
+			width: 2.3rem;
+			vertical-align: middle;
+			padding-left:0.66rem;
+		}
+		header .top > a{
+			display: block;
+			float: right;
+			padding-right: 0.44rem;
+			line-height: 1.1rem;
+		}
+		header .top > a img{
+			width: 0.66rem;
+			vertical-align: middle;
+		}
+		header .top > a:first-child{
+			float: left;
+		}
+		header .top > a:first-child img{
+			width: 0.35rem;
+			padding-left: 0.54rem;
+		}
+		header p{
+			display: block;
+			float: left;
+			line-height: 1.03rem;
+			font-size: 0.3rem;
+			color: #161817;
+			padding: 0 0.65rem ;
+		}
+		header p:last-child{
+			float: right;
+		}
+		header p span{
+			color: #919193;
+
+		}
+		section{
+			margin-top: 3.15rem;
+			transition:all 0.5s;
+		}
+		section>div{
+			padding-bottom: 0.2rem;
+			position: relative;
+		}
+		section div img{
+			width: 100%;
+		}
+		section div p:first-child{
+			position: absolute;
+			right: 0;
+			top: 0.42rem;
+			width: 1.96rem;
+			line-height: 0.53rem;
+			font-size: 0.28rem;
+			text-align: center;
+			background: url("images/red_05.png") no-repeat;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+			color: #f9f9ef;
+		}
+		.icon {
+		   width: 1em; height: 1em;
+		   vertical-align: -0.15em;
+		   fill: currentColor;
+		   overflow: hidden;
+		}
+		section div div{
+			position: absolute;
+			right: 0;
+			bottom: 0.2rem;
+		}
+		section div div a{
+			line-height: 0.87rem;
+			width: 1.3rem;
+			display: block;
+			float: left;
+			font-size: 0.38rem;
+			text-decoration: none;
+			color: #fdfdfd;
+		}
+		section div div a span{
+			font-weight: lighter;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<header class="clearfix">
+			<div class="top clearfix">
+				<a href="center.html"><img src="images/ret_03 (2).png" alt=""></a>
+				<img src="images/home-logo_03.png" alt="">
+				<a href="search.html"><img src="images/home-so_03.png" alt=""></a>
+			</div>
+			<p>我的订阅<span> . My Subsrcptions </span></p>
+			<p>展讯</p>
+		</header>
+		<section>
+			
+			<div>
+				<p>剩余60天</p>
+				<img src="images/diaosu02_06.jpg" alt="">
+				<div class="clearfix">
+					<a href="#">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-fenxiang"></use>
+						</svg>
+					</a>
+					<a href="#" class="xin">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-guanzhu"></use>
+						</svg>
+						<span>159</span>
+					</a>
+					<a href="#">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-guanzhu1"></use>
+						</svg>
+						<span>394</span>
+					</a>
+					<a href="#">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-pinglun"></use>
+						</svg>
+						<span>9</span>
+					</a>
+				</div>
+			</div>
+			<div>
+				<p>剩余80天</p>
+				<img src="images/huihua2_04.jpg" alt="">
+				<div class="clearfix">
+					<a href="#">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-fenxiang"></use>
+						</svg>
+					</a>
+					<a href="#" class="xin">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-guanzhu"></use>
+						</svg>
+						<span>159</span>
+					</a>
+					<a href="#">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-guanzhu1"></use>
+						</svg>
+						<span>394</span>
+					</a>
+					<a href="#">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-pinglun"></use>
+						</svg>
+						<span>9</span>
+					</a>
+				</div>
+			</div>
+			<div>
+				<p>剩余90天</p>
+				<img src="images/huihua3_06.jpg" alt="">
+				<div class="clearfix">
+					<a href="#">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-fenxiang"></use>
+						</svg>
+					</a>
+					<a href="#" class="xin">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-guanzhu"></use>
+						</svg>
+						<span>159</span>
+					</a>
+					<a href="#">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-guanzhu1"></use>
+						</svg>
+						<span>394</span>
+					</a>
+					<a href="#">
+						<svg class="icon" aria-hidden="true">
+						    <use xlink:href="#icon-pinglun"></use>
+						</svg>
+						<span>9</span>
+					</a>
+				</div>
+			</div>
+
+		</section>
+	</div>
+	<script src="js/hammer.min.js"></script>
+	<script src="js/iconfont (2).js"></script>
+	<script>
+		var sec = document.getElementsByTagName('section')[0];
+		var hammertime = new Hammer(sec);
+		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+		var j = 0;
+		hammertime.on("swipeup",function(){
+			console.log(1)
+			if(j<2){
+				j++;
+				sec.style.marginTop = (-2.82*j+3.15)+"rem";
+			}
+		})
+		hammertime.on("swipedown",function(){
+			if(j > 0){
+				j--;
+				sec.style.marginTop = (-2.82*j+3.15)+"rem";
+			}
+		}) 
+		var xin =document.getElementsByClassName('xin');
+		for(var i=0;i<xin.length;i++){
+			var xin1 = xin[i];
+			var hammertime1 = new Hammer(xin1);
+			(function(i){
+				hammertime1.on("tap",function(){
+					var span = xin[i].getElementsByTagName('span')[0];
+					var icon = xin[i].getElementsByClassName('icon')[0];
+					var num = Number(span.innerHTML);
+					var color = icon.style.color;
+					if(color !== "red"){
+						num = num+1;
+						span.innerHTML = num;
+						icon.style.color = "red";
+					}else{
+						num = num -1;
+						span.innerHTML = num;
+						icon.style.color = "fdfdfd";
+					}
+				})
+			})(i);
+		}
+		
+		
+	</script>
+</body>
+</html>

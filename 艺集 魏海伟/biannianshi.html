@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<link rel="stylesheet" href="css/reset.css">
+	<script>
+		(function(){document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.8 + 'px';})();
+	</script>
+	<style type="text/css">
+		.clearfix:before,
+		.clearfix:after {       
+	    	content: "";     /*内容为“.”就是一个英文的句号而已。也可以不写。*/
+	   		display: block;   /*加入的这个元素转换为块级元素。*/
+	    	clear: both;     /*清除左右两边浮动。*/
+	    	visibility: hidden;      /*可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已；*/
+	    	line-height: 0;    /*行高为0；*/
+	    	height: 0;     /*高度为0；*/
+	    	font-size:0;    /*字体大小为0；*/
+		}
+		.clearfix { *zoom:1;}   /*这是针对于IE6的，因为IE6不支持:after伪类，这个神奇的zoom:1让IE6的元素可以清除浮动来包裹内部元素。*/
+		body,.html{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		
+		}
+		section{
+			transition:all 1s;
+		}
+		section>a{
+			display: block;
+			width: 0.34rem;
+			height: 0.56rem;
+			position: fixed;
+			top:0.64rem;
+			left:0.42rem;
+			z-index: 1;
+		}
+		section>a img{
+			width: 100%;
+		}
+		section div img{
+			width: 100%;	
+		}
+		section div a{
+			display: block;
+			background: url("images/pink_02.png") no-repeat;
+			width: 2.23rem;
+			text-align: center;
+			color: #fffafa;
+			line-height: 0.59rem;
+			font-size: 0.3rem;
+			text-decoration: none;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+		}
+		.zuozhe,.zuopin{
+			position: relative;
+		}
+		.zuozhe a,.zuopin a{
+			position: absolute;
+			top:0;
+			left:0;
+		}
+		.zuopin img{
+			margin-bottom: 0.32rem;
+		}
+		.zuopin img:last-child{
+			margin-bottom: 0rem;
+		}
+		section .zuozhe p:last-child{
+			padding-top: 0.15rem;
+		}
+		section div p{
+			font-size: 0.22rem;
+			padding: 0.15rem 0.62rem 0;
+			color: #656565;
+		}
+		section div p:last-child{
+			padding-top:0;
+			padding-bottom: 0.17rem;
+		}
+		.pinlun div{
+			width: 100%;
+			background-color: #dcdcdc;
+			margin-bottom: 1px;
+		}
+		.pinlun div img{
+			float: left;
+			margin-left: 0.35rem;
+			width: 0.72rem;
+			margin-top: 0.28rem;
+		}
+		.pinlun div h3{
+			font-size: 0.27rem;
+			font-family: "微软雅黑";
+			padding-left: 1.44rem;
+			padding-top: 0.32rem;
+			line-height: 0.39rem;
+		}
+		.pinlun div span{
+			font-size: 0.18rem;
+			font-family: "微软雅黑";
+			padding-left: 0.37rem;
+			/*line-height: 0.28rem;*/
+		}
+		section .pinlun div p{
+			font-size: 0.26rem;
+			font-family: "微软雅黑";
+			padding: 0;
+			padding-left: 1.44rem;
+			line-height: 0.96rem;
+		}
+		section .pinlun .last p{
+			text-align: center;
+			padding-left: 0;
+			margin-top: 0.10rem;
+			margin-bottom: 0;
+		}
+		section h4{
+			font-size: 0.26rem;
+			font-family: "微软雅黑";
+			padding-left: 0.62rem;
+			line-height: 1rem;
+
+		}
+		.icon {
+		    width: 1em; height: 1em;
+		    vertical-align: -0.15em;
+		    fill: currentColor;
+		    overflow: hidden;
+		}
+		footer{
+			width: 100%;
+			background: #000;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+		}
+		footer a{
+			text-decoration: none;
+			display: block;
+			float: left;
+			width: 25%;
+			text-align: center;
+			font-size: 0.38rem;
+			color: #fff;
+			line-height: 1.45rem;
+		}
+		footer a:hover{
+			color: red;
+		}
+		.zhanlan{
+			position: relative;
+		}
+		.down,.up{
+			width: 0.25rem;
+			position: absolute;
+			right: 0.9rem;
+			bottom: 0.15rem;
+		}
+		.up,.neirong{
+			display: none;
+		}
+		.zhanlan>p{
+			padding-bottom: 0.15rem;
+		}
+		.wrap2{
+			position: fixed;
+			top:0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(11,7,8,0.5);
+			display: none;
+			z-index: 4;
+		}
+		.wrap2 .share{
+			width:100%;
+			position: fixed;
+			bottom: 0;
+			right: 0;
+			background-color: rgba(255,255,255,0.9);
+		}
+		.wrap2 .share div p:first-child{
+			text-align: center;
+			font-size: 0.3rem;
+			line-height: 0.5rem;
+			padding-top: 0.50rem;
+			padding-bottom: 0.74rem;
+		}
+		.wrap2 .share div a{
+			display: block;
+			float: left;
+			text-align: center;
+			text-decoration: none;
+			width: 22.2%;
+		}
+		.wrap2 .share div a:nth-child(2){
+			padding-left: 0.6rem;
+		}
+		.wrap2 .share div a:nth-child(5){
+			padding-right: 0.6rem;
+		}
+		.wrap2 .share div a img{
+			width: 1.33rem;
+		}
+		.wrap2 .share div a span{
+			font-size: 0.3rem;
+			line-height: 0.8rem;
+			color: #d52314;
+			display: block;
+		}
+		.wrap2 .share p:last-child{
+			text-align: center;
+			border-top: 1px solid #d52415;
+			line-height: 1.44rem;
+			font-size: 0.40rem;
+			margin: 0 0.6rem;
+		}
+		.clear{
+			clear: both;
+		}
+		.wrap3{
+			width: 100%;
+			height: 100%;
+			background:url("images/searchbg.jpg") no-repeat;
+			overflow: hidden;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+			position: fixed;
+			top:0;
+			left: 100%;
+			transition:all 0.5s;
+			z-index: 3;
+		}
+		.header-p h5{
+			text-align: center;
+			color: #d40000;
+			font-size: 0.4rem;
+			margin: 0 0.53rem;
+			font-family: "微软雅黑";
+			margin-top: 0.56rem;
+			line-height: 1.2rem;	
+			border-bottom: 1px solid #000;
+		}
+		.header-p .icon{
+			color: #da2301;
+			font-size: 0.64rem;
+			float: right;
+			margin-bottom: 0.25rem;
+			margin-top: 0.3rem;
+		}
+		.header-p .icon {
+		   width: 1em; height: 1em;
+		   vertical-align: -0.15em;
+		   fill: currentColor;
+		   overflow: hidden;
+		   font-size: 0.69rem;
+		}
+		.header-p img{
+			/*display: block;*/
+			float: left;
+			width: 0.36rem;
+			vertical-align: middle;
+		}
+		.sec-p{
+			margin: 0 0.53rem;
+		}
+		.sec-p textarea{
+			margin-top: 0.5rem;
+			border: 0;
+			outline: 0;
+			background: rgba(0,0,0,0);
+		}
+		.sec-p a:nth-child(2){
+			margin-left: 0.56rem;
+			text-decoration: none;
+		}
+		.sec-p a:last-child{
+			margin-left: 0.22rem;
+			text-decoration: none;
+		}
+		.sec-p a img{
+			width: 0.7rem;
+		}
+		.wrap4{
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top:0;
+			left: 100%;
+			transition:all 0.5s;
+			z-index: 2;
+			background-color: #fff;
+		}
+		.wrap4>img{
+			position: absolute;
+			left: 0.42rem;
+			width: 0.36rem;
+			top: 0.65rem;
+		}
+		.wrap4 div img{
+			width: 100%;
+			height: 13.9rem;
+		}
+		.wrap4 div h3{
+			padding-left: 0.43rem;
+			font-size: 0.34rem;
+			line-height: 0.46rem;
+			padding-top: 0.23rem;
+		}
+		.wrap4 div p:last-child{
+			font-size: 0.28rem;
+			line-height: 1.08rem;
+			padding-bottom: 0.17rem;
+			padding-left: 0.43rem;
+		}
+		.wrap4 div span{
+			display: block;
+			font-size: 0.23rem;
+			line-height: 0.35rem;
+			padding-left: 0.43rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<section>
+			<a href="index.html"><img src="images/ret_03.png" alt=""></a>
+			<div class="zhanlan">
+				<img src="images/biannianshi03_05.jpg" alt="">
+				<a href="#">展览内容</a>
+				<p>曾健勇出生于广东登海一个笃信基督教的家庭，在今天这样一个“解构”、“去历史化”、“反宏大叙事”莫名其妙流行的年代，他力图通过自己的思考，创作和展览，以“大洪荒”、“启示录”、“复乐园”三幕视觉场景，从建一个关于人类和自我的“编年史”。以时间为轴展开的三幕，既充满了历史的必然宿命，也展现了自身内部的复杂冲突--这是一个身处于历史内部的当代艺术家力图对历史的理解和“重写”。</p>
+				<div class="neirong">
+					<h4>第一幕 大洪荒</h4>
+					<p>大洪荒是历史的终结，也是历史的开端。上帝毁灭了旧人类，创造了新人类，义人诺亚在神的指引下，带领自己的家人和各种动物登上方舟，从而躲过灾难。新人诺亚把一年分为2个月、每个月30天，“编年史”由此开始。大洪荒几乎在所有文明的源头中都能找到。然而，他不仅是一个关于正义与邪恶、忠告与背弃、毁灭与拯救的简单故事，更是人类历史中不断重现的伦理原型。这里，它显示为一场旷日持久的战争。</p>
+					<h4>第二幕 启示录</h4>
+					<p>战争是人类社会和人类历史永恒的主题，主宰巴比伦特城的大赤龙招来海上的兽，与羊和羊的信众激战，圣徒们最终获胜，灾难降临，巴比伦大城在一日之内土崩瓦解。上帝揭开第七封印跟随龙和兽助肘为孽得罪人在末日审判日收到彻底毁灭的惩罚。启示录发生在何时？与大洪荒一样，在永恒的《圣经》中，在过去的《浮士德》中，在今天的“恐怖主义”，也在未来的预言中。末日审判之后，“编年史”从此翻篇，美丽世界再次显现。</p>
+					<h4>第三幕 复乐园</h4>
+					<p>在东方，四条大河围绕灌溉之地，上帝为亚当和夏娃创造伊甸园，大地满是奇花异草和黄金珠宝，鸟兽不觉、五谷丰登。因受蛇之诱惑，他们偷食善恶树果，而被驱逐出乐园，终日辛勤。亚当夏娃之子该隐杀兄开始，人类进入一次又一次的不断重复的“启示录”。末日审判之后，历史再次轮回，完美之境重现，乐园失而复得，历史在这里得以永恒。然而，复乐园也可能是完美地狱，在这里经验的历史永远继续而精神的历史却以然完结。</p>
+				</div>
+				<img src="images/shou2_07.jpg" alt="" class="down">
+				<img src="images/shou_07.jpg" alt="" class="up">
+			</div>
+			<div class="zuozhe">
+				<img src="images/biannianshi02_03.jpg" alt="">
+				<a href="#">作者介绍</a>
+				<p>曾健勇，男，1971年11月出生于广东登海，毕业于国立华侨大学艺术系中国画专业；进入中央美术学院版画研修班学习；职业：画家。</p>
+			</div>
+			<div class="zuopin">
+				<a href="#">作品展示</a>
+				<img src="images/biannianshi03_05.jpg" alt="">
+				<img src="images/biannianshi04_07.jpg" alt="">
+				<img src="images/biannianshi05_09.jpg" alt="">
+				<img src="images/biannianshi06_11.jpg" alt="">
+
+			</div>
+			<div class="pinlun">
+				<a href="#">展览评论</a>
+				<div class="clearfix">
+					<img src="images/pinglun01_39.jpg" alt="">
+					<h3>阿德</h3>
+					<span>2016.08.21</span>
+					<p>挺好的，特别喜欢这种风格</p>
+				</div>
+				<div class="clearfix">
+					<img src="images/pinglun01_39.jpg" alt="">
+					<h3>阿德</h3>
+					<span>2016.08.21</span>
+					<p>挺好的，特别喜欢这种风格</p>
+				</div>
+				<div class="last"><p>展开全部九条评论 V</p></div>
+			</div>
+		</section>
+		<footer class="clearfix">
+			<a href="#">
+				<svg class="icon" aria-hidden="true">
+				   <use xlink:href="#icon-guanzhu"></use>
+				</svg>
+				<span>关注</span>
+			</a>
+			<a href="#" class="here">
+				<svg class="icon" aria-hidden="true">
+				   <use xlink:href="#icon-daozhequ"></use>
+				</svg>
+				<span>到这</span>
+			</a>
+			<a href="#" class="fenxiang">
+				<svg class="icon" aria-hidden="true">
+				   <use xlink:href="#icon-fenxiang1"></use>
+				</svg>
+				<span>分享</span>
+			</a>
+			<a href="#" class="plun">
+				<svg class="icon" aria-hidden="true">
+				   <use xlink:href="#icon-groupcopy5"></use>
+				</svg>
+				<span>评论</span>
+			</a>
+		</footer>
+	</div>
+	<div class="wrap2">
+		<div class="clearfix share" >
+			<div>
+				<p>分享到</p>
+				<a href="#"><img src="images/fenxiang01_03.png" alt=""><span>艺集</span></a>
+				<a href="#"><img src="images/fenxiang02_05.png" alt=""><span>微信</span></a>
+				<a href="#"><img src="images/fenxiang03_07.png" alt=""><span>微博</span></a>
+				<a href="#"><img src="images/fenxiang04_09.png" alt=""><span>QQ</span></a>
+				<span class="clearfix"></span>
+			</div>
+			
+			<p class="quxiao">取消</p>
+		</div>	
+	</div>
+	<div class="wrap3">
+		<div class="header-p">
+			<h5>
+				<img src="images/heijiantou_03.png" alt="" class="ret1">评论
+				<svg class="icon" aria-hidden="true">
+					<use xlink:href="#icon-fabu"></use>
+				</svg>
+			</h5>
+		</div>	
+		<div class="sec-p">
+			<form action="">
+				<textarea name="" id="" cols="61" rows="18">说点什么....</textarea>
+			</form>
+			<a href="#">
+				<img src="images/pic_11.jpg" alt="">
+			</a>
+			<a href="#">
+				<img src="images/xiangji_53.jpg" alt="">
+			</a>
+		</div>
+	</div>
+	<div class="wrap4">
+		<img src="images/ret_03.png" alt="" class="ret2">
+		<div>
+			<img src="images/map_01.jpg" alt="">
+			<h3>chi k11艺术空间</h3>
+			<span>开放时间：9:00-18:00</span>
+			<p>地址：淮海中路300号 上海k11购物艺术中心 B3层</p>
+		</div>
+	</div>
+	<script src="js/iconfont (2).js"></script>
+	<script src="js/iconfont.js"></script>
+	<script src="js/hammer.min.js"></script>
+	<script>
+		var sec = document.getElementsByTagName('section')[0];
+		var hammertime = new Hammer(sec);
+		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+		var i = 0;
+		hammertime.on("swipeup",function(){
+			if(i<7){
+				i++;
+				sec.style.marginTop = -6*i+"rem";
+			}
+		})
+		hammertime.on("swipedown",function(){
+			if(i > 0){
+				i--;
+				sec.style.marginTop = -6*i+"rem";
+			}
+		}) 
+		var down = document.getElementsByClassName('down')[0];
+		var up = document.getElementsByClassName('up')[0];
+		var neirong = document.getElementsByClassName('neirong')[0];
+		var hammertime1 = new Hammer(down);
+		var hammertime2 = new Hammer(up);
+		hammertime1.on("tap",function(){
+			neirong.style.display ="block";
+			down.style.display ="none";
+			up.style.display ="block";
+		});
+		hammertime2.on("tap",function(){
+			neirong.style.display ="none";
+			down.style.display ="block";
+			up.style.display ="none";
+		});
+		var quxiao = document.getElementsByClassName('quxiao')[0];
+		var wrap2 = document.getElementsByClassName('wrap2')[0];
+		var fenxiang = document.getElementsByClassName('fenxiang')[0];
+		var div = document.getElementsByClassName('share')[0].getElementsByTagName('div')[0];
+		var hammertime2 = new Hammer(fenxiang);
+		var hammertime3 = new Hammer(wrap2);
+		var hammertime4 = new Hammer(div);
+		hammertime2.on("tap",function(){
+			wrap2.style.display = "block";
+		})
+		hammertime3.on("tap",function(){
+			wrap2.style.display = "none";
+		})
+		hammertime4.on("tap",function(){
+			event.stopPropagation();
+			wrap2.style.display = "block";
+		});
+		var ret = document.getElementsByClassName('ret1')[0];
+		var pl = document.getElementsByClassName('plun')[0];
+		var wrap3 = document.getElementsByClassName('wrap3')[0];
+		var hammertime5 = new Hammer(ret);
+		var hammertime6 = new Hammer(pl);
+		hammertime5.on("tap",function(){
+			wrap3.style.left = "100%";
+		});
+		hammertime6.on("tap",function(){
+			wrap3.style.left = "0%";
+		})
+		var here = document.getElementsByClassName('here')[0];
+		var wrap4 = document.getElementsByClassName('wrap4')[0];
+		var ret2 = document.getElementsByClassName('ret2')[0];
+		var hammertime7 = new Hammer(ret2);
+		var hammertime8 = new Hammer(here);
+		hammertime7.on("tap",function(){
+			wrap4.style.left = "100%";
+		});
+		hammertime8.on("tap",function(){
+			wrap4.style.left = "0%";
+		})
+	</script>
+</body>
+</html>
