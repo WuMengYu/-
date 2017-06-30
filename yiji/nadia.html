@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<link rel="stylesheet" href="css/reset.css">
+	<script>
+		(function(){document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.8 + 'px';})();
+	</script>
+	<style type="text/css">
+		.clearfix:before,
+		.clearfix:after {       
+	    	content: "";     /*内容为“.”就是一个英文的句号而已。也可以不写。*/
+	   		display: block;   /*加入的这个元素转换为块级元素。*/
+	    	clear: both;     /*清除左右两边浮动。*/
+	    	visibility: hidden;      /*可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已；*/
+	    	line-height: 0;    /*行高为0；*/
+	    	height: 0;     /*高度为0；*/
+	    	font-size:0;    /*字体大小为0；*/
+		}
+		.clearfix { *zoom:1;}   /*这是针对于IE6的，因为IE6不支持:after伪类，这个神奇的zoom:1让IE6的元素可以清除浮动来包裹内部元素。*/
+		body,.html{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		
+		}
+		section{
+			transition:all 1s;
+		}
+		section>a{
+			display: block;
+			width: 0.34rem;
+			height: 0.56rem;
+			position: fixed;
+			top:0.64rem;
+			left:0.42rem;
+			z-index: 10;
+		}
+		section>a img{
+			width: 100%;
+		}
+		section div img{
+			width: 100%;	
+		}
+		section div a{
+			display: block;
+			background: url("images/pink_02.png") no-repeat;
+			width: 2.23rem;
+			text-align: center;
+			color: #fffafa;
+			line-height: 0.59rem;
+			font-size: 0.3rem;
+			text-decoration: none;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+		}
+		section div h3{
+			font-size: 0.39rem;
+			margin-top: 0.40rem;
+			padding-left: 0.86rem;
+		}
+		section div h4{
+			font-size: 0.31rem;
+			margin-top: 0.40rem;
+			padding-left: 0.86rem;
+		}
+		section div.box p:nth-child(4){
+			padding-top: 0rem;
+		}
+		section div.box p:nth-child(3){
+			padding-bottom: 0rem;
+		}
+		section div p{
+			font-size: 0.26rem;
+			line-height:0.48rem ;
+			color: #666;
+			padding: 0.49rem 0.86rem 0.54rem;
+		}
+		.pinlun div{
+			width: 100%;
+			background-color: #dcdcdc;
+			margin-bottom: 1px;
+		}
+		.pinlun div img{
+			float: left;
+			margin-left: 0.35rem;
+			width: 0.72rem;
+			margin-top: 0.28rem;
+		}
+		.pinlun div h3{
+			font-size: 0.27rem;
+			font-family: "微软雅黑";
+			padding-left: 1.44rem;
+			padding-top: 0.32rem;
+			line-height: 0.39rem;
+			margin-top: 0;
+		}
+		.pinlun div span{
+			display: block;
+			font-size: 0.18rem;
+			font-family: "微软雅黑";
+			padding-left: 1.44rem;
+		}
+		section .pinlun div p{
+			font-size: 0.26rem;
+			font-family: "微软雅黑";
+			padding: 0;
+			padding-left: 1.44rem;
+			line-height: 0.96rem;
+		}
+		section .pinlun .last .box1,section .pinlun .last .box2{
+			text-align: center;
+			padding-left: 0;
+			margin-top: 0.10rem;
+			margin-bottom: 0;
+			background-color: #dcdcdc;
+		}
+		section .pinlun .last,section .pinlun .last1{
+			background-color: #fff;
+		}
+		.last1,.last .box2{
+			display: none;
+		}
+		.icon {
+		    width: 1em; height: 1em;
+		    vertical-align: -0.15em;
+		    fill: currentColor;
+		    overflow: hidden;
+		}
+		footer{
+			width: 100%;
+			background: #000;
+			position: fixed;
+			left: 0;
+			bottom: 0;
+		}
+		footer a{
+			text-decoration: none;
+			display: block;
+			float: left;
+			width: 25%;
+			text-align: center;
+			font-size: 0.38rem;
+			color: #fff;
+			line-height: 1.45rem;
+		}
+		footer a:hover{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<section>
+			<a href="tuijian.html"><img src="images/ret_03.png" alt=""></a>
+			<div>
+				<img src="images/nadia01_01.jpg" alt="">
+				<h3>照片为诗|巴西摄影师 Nadia Maria</h3>
+				<p>来自巴西的摄影师Nadia Maria擅长以充满实验性及丰富情感的方式，以摄影传达埋藏在内心的情绪和想法。Nadia Maria在小时候就发现自己对摄影的爱好，照相机从此就成为他最钟爱的玩具。在18岁的时候，他真正学习摄影并逐渐在这条路上发光发热。在Vojue、National Geogiaphlc上都能看见这些令人惊艳的作品。Nadia Maria将他的人生经历、生活小事都酝酿成摄影的养分，一点一滴的将故事注入每张照片，并结合不同的摄影技巧--这就是他的作品之所以吸引人的原因。</p>
+			</div>
+			<div>
+				<img src="images/nadia02_03.jpg" alt="">
+				<p>真空（Vaccum）系列,就是传达了他在怀孕时的空虚与忧郁，不断自我建立，有自我解构的过程；而香水（Perfume）系列则是将他生下儿子后，将产后忧郁的痛苦具体形象化、可视化的作品。这两系列完整表述了Nadia Maria在作为女人，经历怀孕和生产，探索自我和灵魂的过程。</p>
+			</div>
+			<div>
+				<img src="images/nadia03_05.jpg" alt="">
+				<p>另一系列作品时光飞逝（Tempus Fugit,TimeFlies）,则是Nadia Maria在每天生活的城市巴西圣保罗，被引发出的灵感。夜晚街道上的拥挤像时间一样，【咻！】的一下就过去了，任何东西都是瞬息即逝。他运用了多重曝光和夜光灯来表现这个意向，对忙碌城市、一瞬即逝在适合不过的诠释。</p>
+			</div>
+			<div class="box">
+				<img src="images/nadia04_07.jpg" alt="">
+				<h4> Nadia Maria的自我介绍文</h4>
+				<p>我是 Nadia Maria，出生于1984年，是一名住在巴西圣保罗的摄影师，从事摄影已经有10年的时间。</p>
+				<p>我在七八岁的时候开始接触摄影，拍的都是一些玩偶和玩具，虽然那是照片与我已经形成特殊的连接，但一直到青年时期，这层连接已经变得更为强大；相片逐渐成为我记录生活和人生转折的一种形式，是专属于我的日记。</p>
+			</div>
+			<div>
+				<img src="images/nadia05_09.jpg" alt="">
+				<p>我的作品经常带着浓厚的情感色彩，睡前读出的时刻，特殊的景象或日常生活中的小事都能成为我的灵感来源，而这些灵感都是新事物我的作品经常带着浓厚的情感色彩，睡前读出的时刻，特殊的景象或日常生活中的小事都能成为我的灵感来源，而这些灵感都是新事物，或甚至是不自觉的行为。</p>
+			</div>
+			<div>
+				<img src="images/nadia06_11.jpg" alt="">
+				<p>有些照片则是在忧郁空虚的时刻，或持续自我建立。结构的过程中拍摄的。我的儿子Zion出生后，由于也随之而来，有一段时间只感觉自己和外界逐渐隐没，看不到起始点，医生告诉我那是产后抑郁症。几个月后我才了解，这个自我结构和转换的过程，正是让我学习怎么成为一位母亲，也或许是因为爱吧，内心逐渐有了身为母亲的感觉。</p>
+			</div>
+			<div>
+				<img src="images/nadia07_13.jpg" alt="">
+				<p>有一系列的照片都是表达我在这个状态下，作为女人，赋予生命，并且接受这个转变的内心。在透过与相机实验或游戏的过程中或者说是面对我自己的试验或尝试，这些作品才逐渐产生。希望你们会喜欢我的作品。</p>
+			</div>
+			<div class="pinlun">
+				<a href="#">展览评论</a>
+				<div class="clearfix">
+					<img src="images/pinglun01_39.jpg" alt="">
+					<h3>阿德</h3>
+					<span>2016.08.21</span>
+					<p>挺好的，特别喜欢这种风格</p>
+				</div>
+				<div class="clearfix">
+					<img src="images/pinglun01_39.jpg" alt="">
+					<h3>阿德</h3>
+					<span>2016.08.21</span>
+					<p>挺好的，特别喜欢这种风格</p>
+				</div>
+				<div class="last">
+					<p class="box1">展开全部123条评论 V</p>
+					<div class="last1">
+						<div class="clearfix">
+							<img src="images/pinglun01_39.jpg" alt="">
+							<h3>阿德</h3>
+							<span>2016.08.21</span>
+							<p>挺好的，特别喜欢这种风格</p>
+						</div>
+						<div class="clearfix">
+							<img src="images/pinglun01_39.jpg" alt="">
+							<h3>阿德</h3>
+							<span>2016.08.21</span>
+							<p>挺好的，特别喜欢这种风格</p>
+						</div>
+						<div class="clearfix">
+							<img src="images/pinglun01_39.jpg" alt="">
+							<h3>阿德</h3>
+							<span>2016.08.21</span>
+							<p>挺好的，特别喜欢这种风格</p>
+						</div>
+						<div class="clearfix">
+							<img src="images/pinglun01_39.jpg" alt="">
+							<h3>阿德</h3>
+							<span>2016.08.21</span>
+							<p>挺好的，特别喜欢这种风格</p>
+						</div>
+						<div class="clearfix">
+							<img src="images/pinglun01_39.jpg" alt="">
+							<h3>阿德</h3>
+							<span>2016.08.21</span>
+							<p>挺好的，特别喜欢这种风格</p>
+						</div>
+						<div class="clearfix">
+							<img src="images/pinglun01_39.jpg" alt="">
+							<h3>阿德</h3>
+							<span>2016.08.21</span>
+							<p>挺好的，特别喜欢这种风格</p>
+						</div>
+					</div>
+					<p class="box2">收起 V</p>
+				</div>
+			</div>
+		</section>
+		<footer class="clearfix">
+			<a href="#">
+				<svg class="icon" aria-hidden="true">
+				   <use xlink:href="#icon-guanzhu"></use>
+				</svg>
+				<span>关注</span>
+			</a>
+			<a href="#">
+				<svg class="icon" aria-hidden="true">
+				   <use xlink:href="#icon-daozhequ"></use>
+				</svg>
+				<span>到这</span>
+			</a>
+			<a href="#">
+				<svg class="icon" aria-hidden="true">
+				   <use xlink:href="#icon-fenxiang1"></use>
+				</svg>
+				<span>分享</span>
+			</a>
+			<a href="#">
+				<svg class="icon" aria-hidden="true">
+				   <use xlink:href="#icon-groupcopy5"></use>
+				</svg>
+				<span>评论</span>
+			</a>
+		</footer>
+	</div>
+	<script src="js/iconfont (2).js"></script>
+	<script src="js/hammer.min.js"></script>
+	<script>
+		var sec = document.getElementsByTagName('section')[0];
+		var hammertime = new Hammer(sec);
+		hammertime.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+		var i = 0;
+		hammertime.on("swipeup",function(){
+			if(i<10){
+				i++;
+				sec.style.marginTop = -8*i+"rem";
+			}
+		})
+		hammertime.on("swipedown",function(){
+			if(i > 0){
+				i--;
+				sec.style.marginTop = -8*i+"rem";
+			}
+		}) 
+		var last = document.getElementsByClassName('last')[0];
+		var box1 = document.getElementsByClassName('box1')[0];
+		var box2 = document.getElementsByClassName('box2')[0];
+		var last1 = last.getElementsByClassName('last1')[0];
+		var hammertime1 = new Hammer(box1);
+		var hammertime2 = new Hammer(box2);
+		hammertime1.on("tap",function(){
+			box1.style.display = "none";
+			box2.style.display = "block";
+			last1.style.display = "block";
+		})
+		hammertime2.on("tap",function(){
+			box1.style.display = "block";
+			box2.style.display = "none";
+			last1.style.display = "none";
+		})
+	
+		
+		
+	</script>
+</body>
+</html>

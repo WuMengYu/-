@@ -1,0 +1,856 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<link rel="stylesheet" href="css/swiper-3.4.2.min.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<script>
+		(function(){document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.8 + 'px';})();
+	</script>
+	<style type="text/css">
+		.clearfix:before,
+		.clearfix:after {       
+	    	content: "";     /*内容为“.”就是一个英文的句号而已。也可以不写。*/
+	   		display: block;   /*加入的这个元素转换为块级元素。*/
+	    	clear: both;     /*清除左右两边浮动。*/
+	    	visibility: hidden;      /*可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已；*/
+	    	line-height: 0;    /*行高为0；*/
+	    	height: 0;     /*高度为0；*/
+	    	font-size:0;    /*字体大小为0；*/
+		}
+		.clearfix { *zoom:1;}   /*这是针对于IE6的，因为IE6不支持:after伪类，这个神奇的zoom:1让IE6的元素可以清除浮动来包裹内部元素。*/
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		/*header begin*/
+		header .top{
+			background-color: #f0f0f2;
+			text-align: center;
+			padding-top: 0.64rem;
+			padding-bottom: 0.3rem;
+			line-height: 1.1rem;
+		}
+		header .top > img{
+			width: 2.3rem;
+			vertical-align: middle;
+			padding-left:0.66rem;
+		}
+		header .top > a{
+			display: block;
+			float: right;
+			padding-right: 0.44rem;
+			line-height: 1.1rem;
+		}
+		header .top > a img{
+			width: 0.66rem;
+			vertical-align: middle;
+		}
+		.banner{
+		    width: 100%;
+		    height: 5.48rem;
+		    z-index: -10;
+		    transition:all 1s;
+		}  
+		.banner a img{
+			width: 100%;
+		}
+		.swiper-pagination-bullet{
+			background: #ececec;
+		}
+		.swiper-pagination-bullet-active{
+			background: #d52315;
+		}
+		.swiper-wrapper{
+			width: 100%;
+		}
+		.swiper-wrapper img{
+			width: 100%;
+		}
+		.header-down{
+			/*margin-top: 0.67rem;*/
+			width: 100%;
+			overflow: hidden;
+			margin-top: 0.19rem;
+			margin-bottom: 0.21rem;
+		}
+		.header-down .box{
+			width: 54.6rem;
+			margin-left: -0.04rem;
+			/*transition: all 0.5s;*/
+		}
+		.header-down .box a{
+			display: block;
+			width: 4.47rem;
+			height: 2.79rem;
+			margin:0 0.04rem;
+			float: left;
+		}
+		.header-down img{
+			width: 100%;
+		}
+		/*header over*/
+		/*section begin*/
+		section{
+			width: 100%;
+			overflow: hidden;
+			 transition:all 1s;
+		}
+		section .section-n{
+			width: 200%;
+			overflow: hidden;
+		}
+		section .left,section .right{
+			width: 50%;
+			float: left;	
+		}
+		section .left-w,section .right-w{
+			transition:all 1s;
+			z-index: 0;
+		}
+		section .left div,section .left div a img,section .right div,section .right div a img,section .tab,section .tab img{
+			width: 100%;
+		}
+		section .tab{
+			position: relative;
+			top:0;
+			left: 0;
+			height: 0.87rem;
+			z-index: 10;
+		}
+		section .left-w div,section .right-w div{
+			margin-bottom: 0.2rem;
+		}
+		section .left-w div>a,section .rigth-w div>a{
+			display: block;
+			width: 100%;
+			height: 5.34rem;
+		}
+		.ani{
+			transform:translate(0,-5.67rem);
+		}
+		.ani1{
+			margin-top:-5.54rem ;
+		}
+		.left-w div,.right-w div{
+			position: relative;
+		}
+		.left-w div p:first-child,.right-w div p:first-child{
+			position: absolute;
+			right: 0;
+			top: 0.42rem;
+			width: 1.96rem;
+			line-height: 0.53rem;
+			font-size: 0.28rem;
+			text-align: center;
+			background: url("images/red_05.png") no-repeat;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+			color: #f9f9ef;
+		}
+		#down,#down1,#down2,#down3,#down4,#down5,#down6,#down7,#down8,#down9,#down0{
+			width: 5.2rem;
+			height: 0.87rem;
+			margin: 0;
+			padding: 0;
+			position: absolute;
+			right: 0;
+			bottom: 0rem;
+			z-index: 0;
+			float: right;
+		}
+		#down a,#down1 a,#down2 a,#down3 a,#down4 a,#down5 a,#down6 a,#down7 a,#down8 a,#down9 a,#down0 a{
+			line-height: 0.87rem;
+			width: 1.3rem;
+			display: block;
+			float: left;
+			font-size: 0.36rem;
+			text-decoration: none;
+			color: #fdfdfd;
+
+		}
+		#down .icon,#down1 .icon,#down2 .icon,#down3 .icon,#down4 .icon,#down5 .icon,#down6 .icon,#down7 .icon,#down8 .icon,#down9 .icon,#down0 .icon {
+		   width: 1em; height: 1em;
+		   vertical-align: -0.15em;
+		   fill: currentColor;
+		   overflow: hidden;
+		}
+		section div div a span{
+			font-weight: lighter;
+		}
+		footer{
+			width: 100%;
+			background-color: #000;
+			position: fixed;
+			bottom: 0;
+			left:0;
+		}
+		footer a{
+			width: 25%;
+			float: left;
+			display: block;
+			text-align: center;
+			text-decoration: none;
+			padding: 0.2rem 0;
+			color: #fff;
+			line-height: 0.46rem;
+		}
+		footer a:first-child{
+			color: red;
+		}
+		footer a:hover{
+			color: red;
+		}
+		footer a span{
+			padding-top: 0.1rem;
+			display: block;
+			font-size: 0.16rem;
+			font-family: "微软雅黑";
+		}
+		footer .icon {
+		   width: 1em; height: 1em;
+		   vertical-align: -0.15em;
+		   fill: currentColor;
+		   overflow: hidden;
+		   font-size: 0.69rem;
+		}
+		.wrap1{
+			display: none;
+			position: absolute;
+			top:0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			z-index: 1000;
+			background-color: rgba(0,0,0,0.7);
+		}
+		.wrap1 div{
+			width: 8.24rem;
+			height: 7.50rem;
+			border-radius: 0.2rem;
+			background-color: #fff;
+			text-align: center;
+			margin: 0 auto;
+			margin-top: 50%;
+		}
+		.wrap1 div img:first-child{
+			width: 7.92rem;
+			border-radius: 0.2rem;
+			margin-top: 0.2rem;
+		}
+		.wrap1 div img:nth-child(2){
+			width: 0.97rem;
+			margin-top: 0.36rem;
+			margin-bottom: 0.27rem;
+		}
+		.wrap1 div p{
+			font-size: 0.32em;
+			line-height: 0.44rem;
+		}
+		.wrap1 div p:last-child{
+			padding-bottom: 0.54rem;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<header>
+			<div class="top clearfix">
+				<img src="images/home-logo_03.png" alt="">
+				<a href="search.html"><img src="images/home-so_03.png" alt=""></a>
+			</div>
+			<div class="swiper-container banner">
+			    <div class="swiper-wrapper">
+			        <div class="swiper-slide"><a href="#"><img src="images/u62.jpg" alt=""></a></div>
+			        <div class="swiper-slide"><a href="#"><img src="images/u65.jpg" alt=""></a></div>
+			        <div class="swiper-slide"><a href="#"><img src="images/u68.jpg" alt=""></a></div>
+			    </div>
+			    <!-- 如果需要分页器 -->
+			    <div class="swiper-pagination"></div>
+			</div>
+		</header>
+		<section>
+			<div class="header-down">
+				<div class="box">
+					<a href="huihua.html"><img src="images/huihua_01.jpg" alt=""></a>
+					<a href="shuimo.html"><img src="images/shuimo_03.jpg" alt=""></a>
+					<a href="sheji.html"><img src="images/sheji_05.jpg" alt=""></a>
+					<a href="sheying.html"><img src="images/sheying_07.jpg" alt=""></a>
+					<a href="diaosu.html"><img src="images/diaosu_09.jpg" alt=""></a>
+					<a href="zhuangzhi.html"><img src="images/zhuangzhi_11.jpg" alt=""></a>
+					<a href="huihua.html"><img src="images/huihua_01.jpg" alt=""></a>
+					<a href="shuimo.html"><img src="images/shuimo_03.jpg" alt=""></a>
+					<a href="sheji.html"><img src="images/sheji_05.jpg" alt=""></a>
+					<a href="sheying.html"><img src="images/sheying_07.jpg" alt=""></a>
+					<a href="diaosu.html"><img src="images/diaosu_09.jpg" alt=""></a>
+					<a href="zhuangzhi.html"><img src="images/zhuangzhi_11.jpg" alt=""></a>
+				</div>
+			</div>
+			<div class="section-n clearfix">
+				<div class="left">
+					<div class="tab"><img class="button" src="images/u124.jpg" alt=""></div>
+					<div class="left-w">
+						<div> 
+							<p class="sheng">剩余10天</p>
+							<a href="xiaoquan.html">
+								<img src="images/main-m_01.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>159</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>394</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>9</span>
+								</a>
+							</div>
+						</div>
+						<div> 
+							<p>剩余12天</p>
+							<a href="biannianshi.html">
+								<img src="images/main-m-2_02.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down1">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>239</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>529</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>56</span>
+								</a>
+							</div>
+						</div>
+						<div> 
+							<p>剩余10天</p>
+							<a href="#">
+								<img src="images/main-m-3_02.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down2">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>319</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>226</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>39</span>
+								</a>
+							</div>
+						</div>
+						<div> 
+							<p>剩余2天</p>
+							<a href="#">
+								<img src="images/shuimo01_02.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down3">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>119</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>926</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>109</span>
+								</a>
+							</div>
+						</div>
+						<div> 
+							<p>剩余35天</p>
+							<a href="#">
+								<img src="images/main-m-5_02.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down4">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>909</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>1.2k</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>179</span>
+								</a>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="right">
+					<div class="tab"><img class="button" src="images/u127.jpg" alt=""></div>
+					<div class="right-w">
+						<div> 
+							<p>剩余60天</p>
+							<a href="xiangjing.html">
+								<img src="images/diaosu02_06.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down5">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>159</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>394</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>9</span>
+								</a>
+							</div>
+						</div>
+						<div> 
+							<p>剩余80天</p>
+							<a href="#">
+								<img src="images/huihua2_04.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down6">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>821</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>1.3k</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>56</span>
+								</a>
+							</div>
+						</div>
+						<div> 
+							<p>剩余90天</p>
+							<a href="#">
+								<img src="images/huihua3_06.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down7">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>151</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>1.1k</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>123</span>
+								</a>
+							</div>
+						</div>
+						<div> 
+							<p>剩余119天</p>
+							<a href="#">
+								<img src="images/huihua4_08.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down8">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>159</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>394</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>9</span>
+								</a>
+							</div>
+						</div>
+						<div> 
+							<p>剩余49天</p>
+							<a href="#">
+								<img src="images/sheji02_06.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down9">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>159</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>394</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>9</span>
+								</a>
+							</div>
+						</div>
+						<div> 
+							<p>剩余140天</p>
+							<a href="#">
+								<img src="images/shuimo02_04.jpg" alt="">
+							</a>
+							<div class="clearfix" id="down0">
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-fenxiang"></use>
+									</svg>
+								</a>
+								<a href="#" class="xin">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu"></use>
+									</svg>
+									<span>9</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-guanzhu1"></use>
+									</svg>
+									<span>194</span>
+								</a>
+								<a href="#">
+									<svg class="icon" aria-hidden="true">
+									    <use xlink:href="#icon-pinglun"></use>
+									</svg>
+									<span>5</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>			
+		</section>
+		<footer>
+			<a href="index.html">
+				<svg class="icon" aria-hidden="true">
+  					<use xlink:href="#icon-xuanzhong"></use>
+				</svg>
+				<span>展讯</span>
+			</a>
+			<a href="tuijian.html">
+				<svg class="icon" aria-hidden="true">
+  					<use xlink:href="#icon-tuijian"></use>
+				</svg>
+				<span>推荐</span>
+			</a>
+			<a href="fanbu.html">
+				<svg class="icon" aria-hidden="true">
+  					<use xlink:href="#icon-fabu"></use>
+				</svg>
+				<span>发布</span>
+			</a>
+			<a href="center.html">
+				<svg class="icon" aria-hidden="true">
+  					<use xlink:href="#icon-geren"></use>
+				</svg>
+				<span>个人</span>
+			</a>
+		</footer>
+	</div>
+	<div class="wrap1">
+		<div class="shengyu">
+			<img src="images/xiaoquan01_01.jpg" alt="">
+			<img src="images/xiao_12.jpg" alt="">
+			<p>您关注的展览</p>
+			<p>距离结束还有10天</p>
+		</div>
+	</div>
+	<script src="js/iconfont.js"></script>
+	<script src="js/iconfont (2).js"></script>
+	<script src="js/swiper-3.4.2.min.js"></script>
+	<script src="js/hammer.min.js"></script>
+	<script>        
+		var mySwiper = new Swiper('.banner',{
+			loop:true,
+			pagination: '.swiper-pagination',
+			autoplay : 1000,
+			autoplayDisableOnInteraction : false,
+		});  
+		var box = document.getElementsByClassName('box')[0];
+		var a = document.getElementsByTagName('a');
+		var hammertime = new Hammer(box);
+		var i=0;
+		hammertime.on("swipeleft",function(){	
+			i++;		
+			if(i<=19){
+				box.style.marginLeft = (-2.275*i)+"rem";
+			}
+			if(i==20){
+				i=0;
+				box.style.marginLeft = 0+"rem";
+			}
+			console.log(i)
+		}) 
+		hammertime.on("swiperight",function(){
+			i--;
+			console.log(i)
+			if(i>=0){
+				console.log(2)
+				box.style.marginLeft = (-2.275*i)+"rem";
+			}	
+			if(i==-1){
+				i=19;
+				box.style.marginLeft = -43.225+"rem";
+			}
+		});
+		var sec = document.getElementsByClassName('section-n')[0];
+		var sect = document.getElementsByTagName('section')[0];
+		var left = document.getElementsByClassName('left')[0];
+		var leftw = document.getElementsByClassName('left-w')[0];
+		var banner = document.getElementsByClassName('banner')[0];
+		var right = document.getElementsByClassName('right')[0];
+		var rightw = document.getElementsByClassName('right-w')[0];
+		var button1 = left.getElementsByClassName('button')[0];
+		var button2 = right.getElementsByClassName('button')[0];
+		
+		var hammertime1 = new Hammer(button1);
+		var hammertime2 = new Hammer(button2);
+		// var hammertime3 = new Hammer(sect);
+		var hammertime3 = new Hammer(left);
+		var hammertime4 = new Hammer(right);
+		hammertime3.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+		hammertime4.get('swipe').set({ direction: Hammer.DIRECTION_VERTICAL });
+		hammertime1.on("tap",function(){	
+			sec.style.marginLeft = "-100%";
+		}) 
+		hammertime2.on("tap",function(){	
+			sec.style.marginLeft = "0%";
+		}) 
+		var j = 0;
+		hammertime3.on("swipeup",function(){
+			var cla = banner.getAttribute("class");
+			var cla2 = leftw.getAttribute("class");
+			if(cla.indexOf(" ani") == -1){
+				banner.setAttribute("class",cla+" ani");
+				sect.setAttribute("class","ani");
+			}else{
+				// leftw.setAttribute("class",cla2+" ani1");
+				j++;
+				if(j<4){
+					leftw.style.marginTop = j*-5.54+"rem";
+				}
+				if(j==4){
+					j=3;
+				}
+				console.log(j)
+				
+			}
+		}) 
+		hammertime3.on("swipedown",function(){
+			var cla = banner.getAttribute("class");
+			var cla1 = sect.getAttribute("class");
+			if(cla.indexOf(" ani") !== -1){
+				
+				if(j>0){
+					j--;
+					leftw.style.marginTop = j*-5.54+"rem";
+				}else{
+					cla = cla.replace(" ani","");
+					cla1 = cla1.replace("ani","");
+					banner.setAttribute("class",cla);
+					sect.setAttribute("class",cla1);
+				}
+			}
+		}) 
+		hammertime4.on("swipeup",function(){
+			var cla = banner.getAttribute("class");
+			var cla2 = leftw.getAttribute("class");
+			if(cla.indexOf(" ani") == -1){
+				banner.setAttribute("class",cla+" ani");
+				sect.setAttribute("class","ani");
+			}else{
+				// leftw.setAttribute("class",cla2+" ani1");
+				j++;
+				if(j<5){
+					rightw.style.marginTop = j*-5.7+"rem";
+				}
+				if(j==5){
+					j=4;
+				}
+				console.log(j)
+				
+			}
+		}) 
+		hammertime4.on("swipedown",function(){
+			var cla = banner.getAttribute("class");
+			var cla1 = sect.getAttribute("class");
+			if(cla.indexOf(" ani") !== -1){
+				
+				if(j>0){
+					j--;
+					rightw.style.marginTop = j*-5.7+"rem";
+				}else{
+					cla = cla.replace(" ani","");
+					cla1 = cla1.replace("ani","");
+					banner.setAttribute("class",cla);
+					sect.setAttribute("class",cla1);
+				}
+			}
+		}) 
+		var xin =document.getElementsByClassName('xin');
+		for(var i=0;i<xin.length;i++){
+			var xin1 = xin[i];
+			var hammertime5 = new Hammer(xin1);
+			(function(i){
+				hammertime5.on("tap",function(event){
+					window.event? window.event.cancelBubble = true : e.stopPropagation();
+					var span = xin[i].getElementsByTagName('span')[0];
+					var icon = xin[i].getElementsByClassName('icon')[0];
+					var num = Number(span.innerHTML);
+					var color = icon.style.color;
+					if(color !== "red"){
+						num = num+1;
+						span.innerHTML = num;
+						icon.style.color = "red";
+					}else{
+						num = num -1;
+						span.innerHTML = num;
+						icon.style.color = "fdfdfd";
+					}
+				})
+			})(i);
+		}
+		var shengyu = document.getElementsByClassName('shengyu')[0];
+		var sheng = document.getElementsByClassName('sheng')[0];
+		var wrap1 = document.getElementsByClassName('wrap1')[0];
+		var hammertime6 = new Hammer(sheng);
+		var hammertime7 = new Hammer(shengyu);
+		var hammertime8 = new Hammer(wrap1);
+		hammertime6.on("tap",function(){
+			wrap1.style.display = "block";
+		})
+		// shengyu.addEventListener("touchend",function(){
+		// 	wrap1.style.display = "none";
+		// })
+		hammertime8.on("tap",function(){
+			wrap1.style.display = "none";
+		})
+		hammertime7.on("tap",function(){
+			wrap1.style.display = "block";
+		})
+	 </script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+	<link rel="stylesheet" href="css/reset.css">
+	<script>
+		(function(){document.documentElement.style.fontSize = document.documentElement.clientWidth / 10.8 + 'px';})();
+	</script>
+	<style type="text/css">
+		.clearfix:before,
+		.clearfix:after {       
+	    	content: "";     /*内容为“.”就是一个英文的句号而已。也可以不写。*/
+	   		display: block;   /*加入的这个元素转换为块级元素。*/
+	    	clear: both;     /*清除左右两边浮动。*/
+	    	visibility: hidden;      /*可见度设为隐藏。注意它和display:none;是有区别的。visibility:hidden;仍然占据空间，只是看不到而已；*/
+	    	line-height: 0;    /*行高为0；*/
+	    	height: 0;     /*高度为0；*/
+	    	font-size:0;    /*字体大小为0；*/
+		}
+		.clearfix { *zoom:1;}   /*这是针对于IE6的，因为IE6不支持:after伪类，这个神奇的zoom:1让IE6的元素可以清除浮动来包裹内部元素。*/
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		body .hello,body .login{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top:0;
+			left: 0;
+			overflow: hidden;
+			-webkit-background-size: 100% 100%;
+			background-size: 100% 100%;
+			background-image: url("images/u10.jpg");
+			background-repeat: no-repeat;
+		}
+		body .login{
+			left: 100%;
+			background-image: url("images/u13.jpg");
+			background-repeat:no-repeat ; 
+		}
+		.hello .time{
+			width: 100%;
+			position: fixed;
+			bottom: 0;
+			left:0;
+			text-align: center;
+			font-size: 0.43rem;/*43px+130*/
+			line-height: 1.73rem;
+			color: #09080d;
+		}
+		.time a{
+			display: block;
+			width: 100%;
+			text-decoration: none;
+			color: #09080d;
+			padding-bottom: 2rem;
+		}
+		form{
+			position: relative;
+			padding-top: 6.41rem;/*793-152*/
+			padding-bottom: 6.46rem;
+		}
+		form .top{
+			width:80%;
+			margin: 0 10%;
+			/*margin: 0 auto;*/	
+			border: 0;
+			outline: 0;
+			font-family: 'Arial Normal', 'Arial';
+   	 		font-size: 0.4rem;
+   	 		line-height:1rem;
+   	 		margin-top: 0.54rem;
+    		color: #333333;
+    		text-align: center;
+    		background-color: rgba(9,9,9,0);
+    		border-bottom:1px solid #354c42;
+		}
+		form a{
+			font-family: 'Arial Normal', 'Arial';
+    		font-size: 0.41rem;
+    		color: #4d4b3c;
+    		text-align: center;
+    		text-decoration: none;
+    		float: left;
+    		margin-left: 2.78rem;
+    		margin-top: 1.1rem;
+		}
+		form a:nth-child(4){
+			float: right;
+			margin-right: 2.78rem;
+		}
+		form .check{
+			position: absolute;
+			bottom: 0;
+			left:0;
+			width: 100%;
+			text-align: center;
+			color: #706755;
+			font-size: 0.26rem;
+			line-height: 1.66rem;
+		}
+		form .check span{
+			color: #fffcec;
+		}
+		.share{
+			border-top: 1px solid #f9f4e1;
+		}
+		.share li{
+			list-style: none;
+			border-left: 1px solid #fdf8e4;
+			width: 33%;
+			text-align: center;
+			margin: 0.29rem 0;
+			float: left;
+			line-height: 0.83rem;
+		}
+		.share li:first-child{
+			border: 0;	
+		}
+		.share li img{
+			width: 2rem;
+			vertical-align: middle;
+		}
+		.login > a{
+			position: fixed;
+			top:0.76rem;
+			left:0.65rem;
+			display: block;
+			width: 0.38rem;
+			height: 0.38rem;
+		}
+		.login > a img{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="hello">
+		<div class="time">
+			<p></p>
+			<a href="#">今日推送 >></a>
+		</div>
+		
+	</div>
+	<div class="login">
+		<a href="#" class="close"><img src="images/login-X_05.png" alt=""></a>
+		<form action="" class="clearfix">
+			<input type="text" class="top" name="name" placeholder="点击输入手机号/Email登录">
+			<input type="text" class="top" name="passname" placeholder="输入密码">
+			<a href="index.html">登录</a>
+			<a href="#">注册</a>
+			<label for="" class="check"><input type="checkbox" disabled="true">登录或注册即同意艺集<span>用户服务协议</span></label>
+		</form>	
+		<div class="share">
+			<ul>
+				<li><img src="images/weibo.png" alt=""></li>
+				<li><img src="images/weixin.png" alt=""></li>
+				<li><img src="images/QQ.png" alt=""></li>
+			</ul>
+		</div>
+	</div>
+	<script src="js/hammer.min.js"></script>
+	<script>
+		var myDate = new Date();
+		function dateToStr(datetime){ 
+			 var year = datetime.getFullYear();
+			 var month = datetime.getMonth()+1;//js从0开始取 
+			 var date = datetime.getDate(); 	
+			 if(month<10){
+			  month = "0" + month;
+			 }
+			 if(date<10){
+			  date = "0" + date;
+			 }
+			 var time = "- "+year+" / "+month+" / "+date+" -"; //2009-06-12 
+			// alert(time);
+			 return time;
+  		}   
+		var t = dateToStr(myDate);
+		var p = document.getElementsByTagName('p')[0];
+		p.innerHTML = t;
+		var login = document.getElementsByClassName('login')[0];
+		var a = document.getElementsByTagName('a')[0];
+		var hammertime = new Hammer(a);
+		hammertime.on("tap",function(){
+			console.log(1)
+			login.style.left = "0%";
+		})   
+	</script>
+</body>
+</html>
